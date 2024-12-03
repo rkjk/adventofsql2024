@@ -1,0 +1,17 @@
+version 3.0 
+polar_celebration, event_administration, participant_metrics, attendance_details, headcount, total_present
+polar_celebration, event_administration, menu_analysis, item_performance, food_item_id
+                                                        item_performance, food_item_id
+                                                        
+2.0
+christmas_feast, organizational_details, attendance_record, total_guests
+christmas_feast, organizational_details, menu_registry, course_details, dish_entry, food_item_id
+
+1.0
+northpole_database, annual_celebration, event_metadata, dinner_details, guest_registry, total_count
+                                                      , menu_items, food_category, food_category, dish, food_item_id 
+                                                                                                , dish, food_item_id 
+                                                                                                
+select (xpath('/northpole_database/annual_celebration/event_metadata/dinner_details/guest_registry/total_count/text()', menu_data))[1]::text::integer AS total_count 
+from christmas_menus 
+where (xpath('/*/@version', menu_data))[1]::text = '1.0'; 
